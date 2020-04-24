@@ -1,9 +1,3 @@
-/*My thoughts are that the game board's setup will be here. This will include the
-Squares that I need to make up the Board, which will then eventually make up the
-Game component, combining them all plus a header for keeping the state of the
-player's turn as well as any extras.
-*/
-
 const declareWinner = (states) => {
   const conditions = [
     [0, 1, 2],
@@ -25,23 +19,23 @@ const declareWinner = (states) => {
 }
 
 const Square = (props) => {
-    const [buttonValue, setButtonValue] = React.useState('');
-    function clickHandler() {
-      if (!declareWinner(props.boardState) && !props.value) {
-        props.clickEvent()
-        props.setTurn((props.turn === 'O') ? 'X' : 'O')
-        setButtonValue(props.turn)
-      }
+  const [buttonValue, setButtonValue] = React.useState('');
+  function clickHandler() {
+    if (!declareWinner(props.boardState) && !props.value) {
+      props.clickEvent();
+      props.setTurn((props.turn === 'O') ? 'X' : 'O');
+      setButtonValue(props.turn);
     }
-    return <button onClick={clickHandler} className='square'>{buttonValue}</button>
+  }
+  return <button onClick={clickHandler} className='square'>{buttonValue}</button>;
 }
 
 const Board = (props) => {
-  const [state, setState] = React.useState([])
+  const [state, setState] = React.useState([]);
 
   const clickEvent = (num) => {
-    state[num] = props.turn
-    setState(state)
+    state[num] = props.turn;
+    setState(state);
   }
 
   const winner = declareWinner(state);
@@ -51,8 +45,9 @@ const Board = (props) => {
   }
 
   const renderSquare = (num) => {
-    return <Square clickEvent={() => clickEvent(num)} boardState={state} value={state[num]} turn={props.turn} setTurn={props.setTurn}/>
+    return <Square clickEvent={() => clickEvent(num)} boardState={state} value={state[num]} turn={props.turn} setTurn={props.setTurn}/>;
   }
+  
   return (
     <div className='board'>
       <h3>{status}</h3>
@@ -72,17 +67,16 @@ const Board = (props) => {
         {renderSquare(8)}
       </div>
     </div>
-  )
+  );
 }
 
 
 const Game = () => {
-  const [turn, setTurn] = React.useState('X')
+  const [turn, setTurn] = React.useState('X');
   return (
     <div>
       <h2 className='header'>Player {turn}, it's your turn</h2>
-
       <Board turn={turn} setTurn={setTurn}/>
     </div>
-  )
+  );
 }
