@@ -1,0 +1,14 @@
+html {
+    font-family: monospace;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.gameCell {
+    height: 64px;
+    width: 64px;
+    border: 2px solid black;
+}
