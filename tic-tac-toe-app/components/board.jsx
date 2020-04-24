@@ -1,18 +1,6 @@
 const container = document.querySelector('.container')
 const game = new Game()
 
-const PlayerOne = () => {
-  return (
-      <div className="x-icon">X</div>
-    )
-}
-
-const PlayerTwo = () => {
-  return (
-      <div className="o-icon">O</div>
-    )
-}
-
 const Board = () => {
   const [box1, setBox1] = React.useState("")
   const [box2, setBox2] = React.useState("")
@@ -23,6 +11,7 @@ const Board = () => {
   const [box7, setBox7] = React.useState("")
   const [box8, setBox8] = React.useState("")
   const [box9, setBox9] = React.useState("")
+  
   const move = (e) => {
     
     const boxStates = {
