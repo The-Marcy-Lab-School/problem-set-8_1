@@ -1,12 +1,16 @@
 const Cell = (props) => {
-  console.log(`Cell-Props: ${props}`);
-  const checkPlayer = (id) => {
-    console.log(`cell ${id} has been clicked`);
+  const [square, setSquare] = React.useState('')
+  
+  //the cell only know its own value
+  const changeCellValue = () => {
+    setSquare(props.turn);
+    props.changeTurn();
+    props.updateBoard(props.id, props.turn);
   };
   
   return (
     <div>
-      <div id ={props.id}  className ="cell" onClick={() => checkPlayer(props.id)}></div>
+      <div id ={props.id}  className ="cell" onClick={changeCellValue}>{square}</div>
     </div>
     );
 };
