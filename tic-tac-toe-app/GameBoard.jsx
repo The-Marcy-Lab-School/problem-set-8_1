@@ -5,87 +5,65 @@ function GameBoard() {
     null, null, null,
     null, null, null,
   ]);
-  const [winner, setWinner] = React.useState('');
 
   const checkWinner = () => {
-    const board = cells;
     // turn >= 5 && turn !== 9
     if (true) {
       // horizontal wins
-      if (board[0] !== null && board[0] === board[1] && board[1] === board[2]) {
-        console.log(board[0]);
-        return board[0];
-        // return true;
+      if (cells[0] !== null && cells[0] === cells[1] && cells[1] === cells[2]) {
+        console.log(cells[0]);
+        return cells[0];
       }
 
-      if (board[3] !== null && board[3] === board[4] && board[4] === board[5]) {
-        return board[3];
-        // return true;
+      if (cells[3] !== null && cells[3] === cells[4] && cells[4] === cells[5]) {
+        return cells[3];
       }
 
-      if (board[6] !== null && board[6] === board[7] && board[7] === board[8]) {
-        return board[6];
-        // return true;
+      if (cells[6] !== null && cells[6] === cells[7] && cells[7] === cells[8]) {
+        return cells[6];
       }
 
       // diagonal wins
-      if (board[0] !== null && board[0] === board[4] && board[4] === board[8]) {
-        return board[0];
-        // return true;
+      if (cells[0] !== null && cells[0] === cells[4] && cells[4] === cells[8]) {
+        return cells[0];
       }
 
-      if (board[2] !== null && board[2] === board[4] && board[4] === board[6]) {
-        return board[2];
-        // return true;
+      if (cells[2] !== null && cells[2] === cells[4] && cells[4] === cells[6]) {
+        return cells[2];
       }
       // vertical wins
-      if (board[0] !== null && board[0] === board[3] && board[3] === board[6]) {
-        return board[0];
-        // return true;
+      if (cells[0] !== null && cells[0] === cells[3] && cells[3] === cells[6]) {
+        return cells[0];
       }
 
-      if (board[1] !== null && board[1] === board[4] && board[4] === board[7]) {
-        return board[1];
-        // return true;
+      if (cells[1] !== null && cells[1] === cells[4] && cells[4] === cells[7]) {
+        return cells[1];
       }
 
-      if (board[2] !== null && board[2] === board[5] && board[5] === board[8]) {
-        return board[2];
-        // return true;
+      if (cells[2] !== null && cells[2] === cells[5] && cells[5] === cells[8]) {
+        return cells[2];
       }
-    }
-    if (turn === 9) {
-      'draw';
-      return true;
     }
   };
 
-  const playCell = (index) => {
-    console.log('state just after click', cells);
-    setTurn(turn + 1);
-    if (cells[index]) return;
-    const newCells = [...cells];
-    if (turn % 2 === 0) {
-      newCells[index] = 'O';
-    }
-    else {
-      newCells[index] = 'X';
-    }
-    setCells(newCells);
-    console.log('state just after attempting to change it', cells);
-  };
+  const winner = checkWinner(cells, turn);
 
   return (
-    <section>
-      <h2>{winner}</h2>
+    <article>
+      <h2>Winner: {winner}</h2>
+      <section className="board">
       {cells.map((cell, i) => (
         <GameCell
-          key={i + cells[i]}
-          index={i}
-          content={cells[i]}
-          dispatchFn={playCell}
+          key={i + cell}
+          cellIndex={i}
+          cells={cells}
+          setCells={setCells}
+          winner={winner}
+          turn={turn}
+          setTurn={setTurn}
         />
       ))}
-    </section>
+      </section>
+    </article>
   );
 }

@@ -8,7 +8,25 @@ html {
 }
 
 .gameCell {
-    height: 64px;
-    width: 64px;
+    height: 130px;
+    width: 130px;
     border: 2px solid black;
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30vw;
+}
+
+h2 {
+    display: block;
+}
+
+.gameCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
 }
