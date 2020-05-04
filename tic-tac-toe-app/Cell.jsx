@@ -6,6 +6,7 @@ const Cell = (props) => {
     setSquare(props.turn);
     props.changeTurn();
     props.updateBoard(props.id, props.turn);
+  
   };
   
   return (
