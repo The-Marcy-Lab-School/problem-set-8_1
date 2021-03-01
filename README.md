@@ -1,4 +1,4 @@
-# Unit 8 - Problem Set #1
+# Problem Set: Tic-Tac-Toe in React
 
 ## Tic-Tac-Toe Game
 
@@ -23,8 +23,3 @@ Your code must meet the following requirements:
 - Components must incorporate the hooks taught thus far.
 
 The started code provided in [/tic-tac-toe-app](tic-tac-toe-app) could be helpful, but is optional. Feel free to start from scratch or adapt as you see fit.
-
-### Submission
-
-- Your code should be pushed to a branch of this repository.
-- Instructors must be able to pull your branch and run `npm start` in order to play your game.
