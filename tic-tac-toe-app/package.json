@@ -1,28 +1,38 @@
 {
-  "name": "react-tac-toe-hooks",
-  "version": "1.0.0",
-  "description": "Building to learn the useState hook",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx serve"
-  },
-  "keywords": [
-    "useState",
-    "react",
-    "hooks"
-  ],
-  "author": "reuben ogbonna",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.1"
-  },
+  "name": "tic-tac-toe-app",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "serve": "^11.3.0"
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
